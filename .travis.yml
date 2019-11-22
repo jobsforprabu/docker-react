@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+  
+before_install:
+ - docker build -t jobsforprabu/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true jobsforprabu/docker-react npm run test
+
